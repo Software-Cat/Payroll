@@ -16,13 +16,8 @@
 
 package io.github.softwarecat.payroll;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@SpringBootApplication
-public class PayrollApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(PayrollApplication.class, args);
-    }
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    
 }
