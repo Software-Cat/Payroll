@@ -58,7 +58,7 @@ public class Employee {
     }
 
     public String getName() {
-        return firstName + "" + lastName;
+        return firstName + " " + lastName;
     }
 
     public void setName(String name) {
