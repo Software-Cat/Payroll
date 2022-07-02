@@ -35,19 +35,36 @@ public class Employee {
     @Setter
     @Column(name = "id", nullable = false)
     private Long id;
+
     @Getter
     @Setter
-    private String name;
+    private String firstName;
+
+    @Getter
+    @Setter
+    private String lastName;
+
     @Getter
     @Setter
     private String role;
 
+    public Employee(String firstName, String lastName, String role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+    }
+
     private Employee() {
     }
 
-    public Employee(String name, String role) {
-        this.name = name;
-        this.role = role;
+    public String getName() {
+        return firstName + "" + lastName;
+    }
+
+    public void setName(String name) {
+        String[] parts = name.split("\\s");
+        firstName = parts[0];
+        lastName = parts[1];
     }
 
     @Override
@@ -55,19 +72,20 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(role, employee.role);
+        return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, role);
+        return Objects.hash(id, firstName, lastName, role);
     }
 
     @Override
     public String toString() {
         return new StringJoiner(", ", Employee.class.getSimpleName() + "[", "]")
                 .add("id=" + id)
-                .add("name='" + name + "'")
+                .add("firstName='" + firstName + "'")
+                .add("lastName='" + lastName + "'")
                 .add("role='" + role + "'")
                 .toString();
     }
