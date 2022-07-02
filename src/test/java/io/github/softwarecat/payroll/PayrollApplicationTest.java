@@ -16,8 +16,14 @@
 
 package io.github.softwarecat.payroll;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.junit.jupiter.api.Test;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class PayrollApplicationTest {
+
+    @Test
+    void main() {
+        assertEquals(1, 1);
+    }
 }

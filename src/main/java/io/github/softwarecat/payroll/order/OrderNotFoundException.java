@@ -14,16 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.payroll;
+package io.github.softwarecat.payroll.order;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+public class OrderNotFoundException extends RuntimeException {
 
-@SpringBootTest
-class PayrollApplicationTests {
-
-    @Test
-    void contextLoads() {
+    public OrderNotFoundException(Long id) {
     }
-
 }

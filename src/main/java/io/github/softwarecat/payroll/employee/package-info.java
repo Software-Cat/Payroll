@@ -14,11 +14,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.payroll;
-
-public class EmployeeNotFoundException extends RuntimeException {
-
-    public EmployeeNotFoundException(Long id) {
-        super("Could not find employee " + id);
-    }
-}
+package io.github.softwarecat.payroll.employee;

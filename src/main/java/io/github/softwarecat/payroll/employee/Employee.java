@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.payroll;
+package io.github.softwarecat.payroll.employee;
 
 import lombok.Getter;
 import lombok.Setter;
