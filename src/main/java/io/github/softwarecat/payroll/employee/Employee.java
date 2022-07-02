@@ -16,15 +16,18 @@
 
 package io.github.softwarecat.payroll.employee;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
 public class Employee {
 
     @Id
@@ -34,5 +37,41 @@ public class Employee {
     @Setter
     private Long id;
 
+    @Getter
+    @Setter
+    @NonNull
+    private String firstName;
 
+    @Getter
+    @Setter
+    @NonNull
+    private String lastName;
+
+    @Getter
+    @Setter
+    @NonNull
+    private String description;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(description, employee.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, description);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Employee.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("firstName='" + firstName + "'")
+                .add("lastName='" + lastName + "'")
+                .add("description='" + description + "'")
+                .toString();
+    }
 }
